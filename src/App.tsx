@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
+import OompaLoompaList from './views/OompaLoompaList/OompaLoompaList';
+import OompaLoompaDetails from './views/OompaLoompaDetails/OompaLoompaDetails';
+import OompaLoompaLogo from './assets/img/logo-umpa-loompa.png';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="h-screen">
+        <nav className="flex items-center h-16 px-2 bg-slate-400">
+          <Link to="/">
+            <img src={OompaLoompaLogo} alt="Oompa Loompa Logo" className="h-10 mx-6 cursor-pointer" />
+          </Link>
+          <span className="font-bold text-lg">Oompa Loompa's Crew</span>
+        </nav>
+        <Routes>
+          <Route path="/" element={<OompaLoompaList />} />
+          <Route path="/oompaLoompa/:id" element={<OompaLoompaDetails />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

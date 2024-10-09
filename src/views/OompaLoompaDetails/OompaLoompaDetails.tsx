@@ -19,7 +19,7 @@ const OompaLoompaDetails: React.FC = () => {
 
   return (
     <div className="flex flex-col md:flex-row">
-      <img src={data?.image} className="p-4 w-full md:w-3/6" alt="OompaLoompa User Image" />
+      <img src={data?.image} className="p-4 w-full md:w-3/6" alt="OompaLoompa User" />
       <div className="flex flex-col p-4 w-full md:w-3/6">
         <span className="text-xl font-bold text-[#374151]">
           {data?.first_name} {data?.last_name}

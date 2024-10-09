@@ -8,11 +8,11 @@ import Spinner from '../../components/Spinner/Spinner';
 import SearchIcon from '../../assets/img/ic_search.png';
 
 const OompaLoompaList: React.FC = () => {
-  const dispatch = useDispatch();
+  const [searchTerm, setSearchTerm] = useState('');
 
+  const dispatch = useDispatch();
   const oompaLoompas = useSelector((state: RootState) => state.oompaLoompas.list);
   const lastPageFetched = useSelector((state: RootState) => state.oompaLoompas.lastPageFetched);
-  const [searchTerm, setSearchTerm] = useState('');
 
   const { data, error, isFetching, isLoading } = useGetOompaLoompasQuery(lastPageFetched, {
     pollingInterval: 24 * 60 * 60 * 1000, // 24 hours
